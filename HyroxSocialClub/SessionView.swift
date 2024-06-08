@@ -6,21 +6,37 @@
 //
 
 import SwiftUI
+import Amplify
 
 struct SessionView: View {
+    
+    @EnvironmentObject var sessionManager: SessionManager
+    let user: AuthUser
+    
     var body: some View {
         VStack {
             Spacer()
-            Text("You signed in using Amplify!! 😤")
+            Text("You signed in as \(user.username) using Amplify!! 😤")
                 .font(.largeTitle)
                 .multilineTextAlignment(.center)
             
             Spacer()
-            Button("Sign Out", action: {})
+            Button("Sign Out", action: {
+                sessionManager.signOut()
+            })
+            Button("Go to Dashboard", action: {
+                DashboardView(user: user)
+            })
         }
     }
 }
 
+private struct DummyUser: AuthUser {
+    let userId: String = "1"
+    let username: String = "dummy"
+}
+
 #Preview {
-    SessionView()
+   
+    SessionView(user: DummyUser())
 }

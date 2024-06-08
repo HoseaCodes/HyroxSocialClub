@@ -6,16 +6,20 @@
 //
 
 import SwiftUI
+import Amplify
 
 struct DashboardView: View {
+    @EnvironmentObject var sessionManager: SessionManager
     @State var text: String = ""
+    let user: AuthUser
+
     var body: some View {
         ScrollView {
             HStack {
                 VStack(alignment: .leading) {
                     Text("Everyday we're muscle'n")
                         .textCase(.uppercase)
-                    Text("Hello, Dominique 👋")
+                    Text("Hello, \(user.username) 👋")
                         .font(.title)
                         .bold()
                         .padding(.top, 5)
@@ -150,12 +154,22 @@ struct DashboardView: View {
                     .padding(.top)
                 })
                 .padding(.bottom, 80)
+            Button("Sign out", action: {
+                sessionManager.signOut()
+            })
         }
     }
 }
 
+
+
 struct DashboardView_Previews: PreviewProvider {
+    private struct DummyUser: AuthUser {
+        let userId: String = "1"
+        let username: String = "dummy"
+    }
+    
     static var previews: some View {
-        DashboardView()
+        DashboardView(user: AuthUser.self as! AuthUser)
     }
 }

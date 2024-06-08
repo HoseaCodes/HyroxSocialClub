@@ -11,16 +11,16 @@ struct ContentView: View {
     @State private var selection = 0
     var body: some View {
         TabView(selection: $selection) {
-            DashboardView()
-                .tabItem {
-                    if selection == 0 {
-                        Image("dashboard_icon_selected")
-                    } else {
-                        Image("dashboard_icon")
-                    }
-                    Text("Dashboard")
-                }
-                .tag(0)
+//            DashboardView()
+//                .tabItem {
+//                    if selection == 0 {
+//                        Image("dashboard_icon_selected")
+//                    } else {
+//                        Image("dashboard_icon")
+//                    }
+//                    Text("Dashboard")
+//                }
+//                .tag(0)
             
             WorkoutScreen()
                 .tabItem {
