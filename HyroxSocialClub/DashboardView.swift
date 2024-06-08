@@ -15,7 +15,7 @@ struct DashboardView: View {
                 VStack(alignment: .leading) {
                     Text("Everyday we're muscle'n")
                         .textCase(.uppercase)
-                    Text("Hello, Kakshi 👋")
+                    Text("Hello, Dominique 👋")
                         .font(.title)
                         .bold()
                         .padding(.top, 5)
