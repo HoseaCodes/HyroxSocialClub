@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct SettingsTab: View {
+    let image: Image
+    let title: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            image
+                .padding(.leading)
+            Text(title)
+                .padding(.leading)
+            Spacer()
+            Image(systemName: "play.fill")
+                .resizable()
+                .frame(width: 8.7, height: 10.5)
+                .padding(.trailing)
+        }
+        .frame(width: UIScreen.main.bounds.width, height: 62)
+        .background(Color(hex: "F8F8F8"))
     }
 }
 
-#Preview {
-    SettingsTab()
+
+struct SettingsTab_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsTab(image: Image("coaches_icon"), title: "Coaches")
+    }
 }

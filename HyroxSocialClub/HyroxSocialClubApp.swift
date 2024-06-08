@@ -11,7 +11,7 @@ import SwiftUI
 struct HyroxSocialClubApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreen()
         }
     }
 }
